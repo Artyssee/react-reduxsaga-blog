@@ -3,6 +3,7 @@ import './App.css';
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { getBlogItems } from '../../redux/actions/blogActions';
 import PostForm from '../PostForm';
+import BlogItemContainer from '../BlogItemContainer';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -23,24 +24,15 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>
+          App overview window
+        </h3>
         <PostForm />
         {newBlogItems(blogItem)}
         {blogItems.map((item: any, key: number) => (
-          <div key={key}>
-            <h1>{item.title}</h1>
-            <p>{item.body}</p>
-          </div>
+          <React.Fragment key={key}>
+            <BlogItemContainer item={item}  />
+          </React.Fragment>
         ))}
       </header>
     </div>
