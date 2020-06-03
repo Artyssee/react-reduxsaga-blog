@@ -1,6 +1,5 @@
 const initialState = {
   blogItems: [],
-  blogItem: {}
 };
 
 const reducer = (state = initialState, action: any) => {
@@ -12,7 +11,7 @@ const reducer = (state = initialState, action: any) => {
     case 'POST_BLOGITEM':
       return { ...state, loading: true}
     case 'POST_BLOGITEM_RECEIVED':
-      return { ...state, blogItem: action.json, loading: false}
+      return { ...state, blogItems: state.blogItems.concat(action.json), loading: false}
     default: 
       return state;
     }
