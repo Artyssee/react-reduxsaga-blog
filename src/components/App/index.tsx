@@ -8,18 +8,10 @@ import BlogItemContainer from '../BlogItemContainer';
 const App = () => {
   const dispatch = useDispatch();
   const blogItems = useSelector(((state: RootStateOrAny) => state.blogItems));
-  const blogItem = useSelector(((state: RootStateOrAny) => state.blogItem));
 
   useEffect(() => {
     dispatch(getBlogItems());
   }, [dispatch])
-
-  const newBlogItems = (blogItem:any) => (
-    <div key={blogItem.id}>
-      <h1>{blogItem.title}</h1>
-      <p>{blogItem.body}</p>
-    </div>
-  );
 
   return (
     <div className="App">
@@ -28,8 +20,7 @@ const App = () => {
           App overview window
         </h3>
         <PostForm />
-        {newBlogItems(blogItem)}
-        {blogItems.map((item: any, key: number) => (
+        {blogItems.slice(0).reverse().map((item: any, key: number) => (
           <React.Fragment key={key}>
             <BlogItemContainer item={item}  />
           </React.Fragment>

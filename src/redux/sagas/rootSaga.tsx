@@ -1,13 +1,14 @@
 import { all, put, takeLatest } from 'redux-saga/effects';
 
 function* fetchBlogItems() {
-    const json = yield fetch('https://jsonplaceholder.typicode.com/posts')
+    // Used to be JSONplaceholder fetch. Mocked with mocky to better test https://jsonplaceholder.typicode.com/posts
+    const json = yield fetch('http://localhost:3001/posts')
         .then((response: any) => response.json());
     yield put({ type: "BLOGITEMS_RECEIVED", json, });
 }
 
 function* createPostBlogItem(payload:any) {
-    const json = yield fetch('https://jsonplaceholder.typicode.com/posts', {
+    const json = yield fetch('http://localhost:3001/posts', {
         method: 'POST',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
