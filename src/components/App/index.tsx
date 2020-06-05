@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import './App.css';
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { getBlogItems } from '../../redux/actions/blogActions';
 import PostForm from '../PostForm';
 import BlogItemContainer from '../BlogItemContainer';
+import Styles from './App.module.scss';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -14,17 +14,19 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className={Styles.App}>
+      <header className={Styles.AppHeader}>
         <h3>
           App overview window
         </h3>
         <PostForm />
-        {blogItems.slice(0).reverse().map((item: any, key: number) => (
-          <React.Fragment key={key}>
-            <BlogItemContainer item={item}  />
-          </React.Fragment>
-        ))}
+        <div className={Styles.blogWrapper}>
+          {blogItems.slice(0).reverse().map((item: any, key: number) => (
+            <React.Fragment key={key}>
+              <BlogItemContainer item={item}  />
+            </React.Fragment>
+          ))}
+        </div>
       </header>
     </div>
   );

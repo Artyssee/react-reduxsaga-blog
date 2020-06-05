@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+interface InewPost {
+    userId: number,
+    postTitle: string,
+    postBody: string
+}
+
 const PostForm = () => {
     const dispatch = useDispatch();
-    const [newPost, setNewPost] = useState({userId: 999});
+    const [newPost, setNewPost] = useState<InewPost>({ userId:999, postTitle: '', postBody: '' });
 
     const changeItem = (e:any) => {
         setNewPost({...newPost, [e.target.name]: e.target.value});
@@ -11,7 +17,7 @@ const PostForm = () => {
 
     const handleSubmit = (e:any) => {
         e.preventDefault();
-        dispatch({ type: 'POST_BLOGITEM', newPost })
+        dispatch({ type: 'POST_BLOGITEM', payload: newPost })
     };
 
     return (
