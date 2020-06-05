@@ -37,10 +37,10 @@ function* createPostBlogItem(action: IPostAction):any {
 };
 
 function* deleteBlogItem({payload}: any) {
-    const deleteItem = yield fetch(`http://localhost:3001/api/blog/${payload}`, {
+    yield fetch(`http://localhost:3001/api/blog/${payload}`, {
         method: 'DELETE'
     })
-    yield put({type: "DELETE_BLOGITEM_SUCCESSFUL", deleteItem})
+    yield put({type: "DELETE_BLOGITEM_SUCCESSFUL", payload})
 }
 
 function* postBlogItemWatcher() {

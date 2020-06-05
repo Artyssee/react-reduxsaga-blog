@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Styles from './postForm.module.scss';
 
 interface InewPost {
     userId: number,
@@ -21,10 +22,10 @@ const PostForm = () => {
     };
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} style={{display: 'flex', flexDirection: 'column'}}>
-            <input type='text' placeholder='post-title' name='postTitle' onChange={(e) => changeItem(e)} />
-            <textarea placeholder='post-body' name='postBody' onChange={(e) => changeItem(e)} />
-            <button type='submit'>Submit</button>
+        <form onSubmit={(e) => handleSubmit(e)} className={Styles.postFormContainer}>
+            <input className={Styles.postFormContainerInput} type='text' placeholder='Insert post title' name='postTitle' onChange={(e) => changeItem(e)} />
+            <textarea className={Styles.postFormContainerTextarea} placeholder='Insert post body' name='postBody' onChange={(e) => changeItem(e)} />
+            <button className={Styles.postFormContainerButton} type='submit'>Submit</button>
         </form>
     );
 }

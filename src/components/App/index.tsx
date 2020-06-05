@@ -14,21 +14,21 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <div className={Styles.App}>
-      <header className={Styles.AppHeader}>
-        <h3>
-          App overview window
-        </h3>
-        <PostForm />
-        <div className={Styles.blogWrapper}>
-          {blogItems.slice(0).reverse().map((item: any, key: number) => (
-            <React.Fragment key={key}>
-              <BlogItemContainer item={item}  />
-            </React.Fragment>
-          ))}
+    <React.Fragment>
+        <header className={Styles.AppHeader}>
+          <h3>React + Redux saga blog</h3>
+        </header>
+        <div className={Styles.bodyContainer}>
+          <PostForm />
+          <div className={Styles.blogWrapper}>
+              {blogItems.slice(0).reverse().map((item: any, key: number) => (
+                <React.Fragment key={key}>
+                  <BlogItemContainer item={item}  />
+                </React.Fragment>
+              ))}
+          </div>
         </div>
-      </header>
-    </div>
+    </React.Fragment>
   );
 }
 
