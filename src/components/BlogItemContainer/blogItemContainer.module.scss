@@ -1,0 +1,76 @@
+@import '../../assets/scss/variables/colors.scss';
+
+.blogItemContainer {
+    width: auto;
+    background-color: $magnolia;
+    height: auto;
+    border-radius: 10px;
+    display: flex;
+    flex: 0 40%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 15px 15px 0 15px;
+    margin-bottom: 40px;
+    box-shadow: 2px 0px 6px 2px $dark-grey;
+
+    &Text {
+        color: $black-chocolate;
+        text-align: left;
+    }
+}
+
+.blogItemHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogItemHeaderText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 500px;
+
+    &Title {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+        color: $black-chocolate;
+        margin-right: 20px;
+    }
+
+    &Seperator {
+        color: $black-chocolate;
+        margin-right: 20px;
+    }
+
+    &BlogNumber {
+        color: $black-chocolate;
+        margin: 0;
+    }
+}
+
+.blogItemIconContainer {
+    display: flex;
+    flex-direction: row;
+
+    &Icon {
+        padding: 0 10px;
+
+        &:active, &:hover {
+            cursor: pointer;
+        }
+
+        &Delete {
+            color: $indian-red;
+        }
+
+        &Edit {
+            color: $prussian-blue;
+        }
+    }
+}
