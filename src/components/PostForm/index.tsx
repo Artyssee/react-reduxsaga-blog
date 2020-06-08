@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Styles from './postForm.module.scss';
-
-interface InewPost {
-    userId: number,
-    postTitle: string,
-    postBody: string
-}
+import { InewPost } from '../../interfaces/blogInterfaces';
 
 const PostForm = () => {
     const dispatch = useDispatch();
     const [newPost, setNewPost] = useState<InewPost>({ userId:999, postTitle: '', postBody: '' });
 
-    const changeItem = (e:any) => {
+    const changeItem = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>): void => {
         setNewPost({...newPost, [e.target.name]: e.target.value});
     };
 
-    const handleSubmit = (e:any) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         dispatch({ type: 'POST_BLOGITEM', payload: newPost })
     };

@@ -1,9 +1,5 @@
 import { all, put, takeLatest } from 'redux-saga/effects';
-interface InewPost {
-    userId: number,
-    postTitle: string,
-    postBody: string
-};
+import { InewPost } from '../../interfaces/blogInterfaces';
 
 interface IPostAction {
     type: 'POST_BLOGITEM',

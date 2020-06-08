@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBlogItems } from '../../redux/actions/blogActions';
 import PostForm from '../PostForm';
 import BlogItemContainer from '../BlogItemContainer';
 import Styles from './App.module.scss';
+import { Istate } from '../../interfaces/blogInterfaces';
 
 const App = () => {
   const dispatch = useDispatch();
-  const blogItems = useSelector(((state: RootStateOrAny) => state.blogItems));
+  const blogItems = useSelector(((state: Istate) => state.blogItems));
 
   useEffect(() => {
     dispatch(getBlogItems());
@@ -21,7 +22,7 @@ const App = () => {
         <div className={Styles.bodyContainer}>
           <PostForm />
           <div className={Styles.blogWrapper}>
-              {blogItems.slice(0).reverse().map((item: any, key: number) => (
+              {blogItems.slice(0).reverse().map((item, key: number) => (
                 <React.Fragment key={key}>
                   <BlogItemContainer item={item}  />
                 </React.Fragment>
