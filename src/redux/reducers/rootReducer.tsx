@@ -1,8 +1,11 @@
-const initialState = {
+import { Istate, IBlogItemsState } from '../../interfaces/blogInterfaces';
+
+const initialState:Istate = {
   blogItems: [],
+  loading: false,
 };
 
-const removeArrayItem = (array: {id: number}[], id:number) => {
+const removeArrayItem = (array: IBlogItemsState[], id:number) => {
   const newArray = [...array];
   const removeIndex = newArray.map(function(aItem:any) { return aItem.id }).indexOf(id);
   console.log('remove indexx', removeIndex);
@@ -12,7 +15,7 @@ const removeArrayItem = (array: {id: number}[], id:number) => {
   return newArray;
 };
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: any):Istate => {
     switch (action.type) {
     case 'GET_BLOGITEMS':
       return { ...state, loading: true };

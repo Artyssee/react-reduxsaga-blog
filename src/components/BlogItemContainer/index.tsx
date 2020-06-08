@@ -3,11 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import Styles from './blogItemContainer.module.scss';
 import { useDispatch } from 'react-redux';
+import { IBlogItemsState } from '../../interfaces/blogInterfaces'
 
-const BlogItemContainer = ({item}:any) => {
+interface Props {
+    item: IBlogItemsState,
+};
+
+const BlogItemContainer = ({item}:Props) => {
     const dispatch = useDispatch();
 
-    const iconOnClick = (item: any) => {
+    const iconOnClick = () => {
         console.log('w');
     };
 
@@ -23,7 +28,7 @@ const BlogItemContainer = ({item}:any) => {
                     <FontAwesomeIcon 
                         className={`${Styles.blogItemIconContainerIcon} ${Styles.blogItemIconContainerIconEdit}`}
                         icon={faPencilAlt}
-                        onClick={() => iconOnClick(item)}
+                        onClick={() => iconOnClick()}
                     />
                     <FontAwesomeIcon 
                         className={`${Styles.blogItemIconContainerIcon} ${Styles.blogItemIconContainerIconDelete}`}
