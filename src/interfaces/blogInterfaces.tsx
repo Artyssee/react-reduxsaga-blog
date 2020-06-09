@@ -5,11 +5,20 @@ export interface InewPost {
     postBody: string
 };
 
-// Interface of state
+// Interface of global state
 export interface Istate {
+    blogState: IblogState,
+    popupState: object,
+};
+
+// Interface for blogState
+export interface IblogState {
     blogItems: IBlogItemsState[],
     loading: boolean,
 };
+
+// Interface for popupState
+
 
 // Interface of state blogItems
 export interface IBlogItemsState {

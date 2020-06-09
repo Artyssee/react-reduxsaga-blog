@@ -8,7 +8,9 @@ import { Istate } from '../../interfaces/blogInterfaces';
 
 const App = () => {
   const dispatch = useDispatch();
-  const blogItems = useSelector(((state: Istate) => state.blogItems));
+  const blogItems = useSelector(((state: Istate) => state.blogState.blogItems));
+
+  console.log(blogItems);
 
   useEffect(() => {
     dispatch(getBlogItems());
