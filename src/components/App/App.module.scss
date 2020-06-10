@@ -27,12 +27,19 @@
 
 .bodyContainer {
   background-color: $prussian-blue;
-  min-height: calc(100vh - 140px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
-  padding-top: 140px;
+  padding-top: 120px;
+}
+
+.popupContainer {
+  position: fixed;
+
+  .bodyContainer {
+    padding-top: 102px;
+  }
 }

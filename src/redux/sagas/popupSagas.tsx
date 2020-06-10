@@ -1,21 +1,16 @@
-import { all, put, takeLatest } from 'redux-saga/effects';
-import { IpopupState } from '../../interfaces/popupInterfaces';
+import { all, takeLatest } from 'redux-saga/effects';
 
-interface IPostAction {
-    type: 'TOGGLE_POPUP',
-    payload: IpopupState
+function* watchOpenPopup() {
+    yield takeLatest('OPEN_POPUP', () => {})
 };
 
-function* togglePopupItem(action:IPostAction) {
-    yield put({ type: "TOGGLE_POPUP_SUCCESSFUL", action })
-}
-
-function* togglePopup() {
-    yield takeLatest('TOGGLE_POPUP', togglePopupItem)
-}
+function* watchClosePopup() {
+    yield takeLatest('CLOSE_POPUP', () => {})
+};
 
 export default function* blogSagas() {
    yield all([
-   togglePopup(),
+    watchOpenPopup(),
+    watchClosePopup(),
    ]);
 }

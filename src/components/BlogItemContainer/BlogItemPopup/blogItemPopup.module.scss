@@ -1,0 +1,108 @@
+@import '../../../assets/scss/variables/colors.scss';
+
+.blogModal {
+    display: block;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 120px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
+}
+
+.blogModalContent {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 10px;
+
+    &Close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+
+        &:hover, &:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.postFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &Input {
+        border: none;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        padding: 10px;
+        color: $black-chocolate;
+        border: 1px solid $black-chocolate;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &Textarea {
+        border: none;
+        height: 150px;
+        max-height: 150px;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 40px;
+        color: $black-chocolate;
+        border: 1px solid $black-chocolate;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.postFormButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &Button {
+        border: none;
+        width: auto;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin: 0 15px;
+
+        &Submit {
+            background-color: $indian-red;
+            color: $magnolia;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $prussian-blue;
+            }
+        }
+
+        &Reset {
+            background-color: $dim-gray;
+            color: $magnolia;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $prussian-blue;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

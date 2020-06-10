@@ -18,3 +18,11 @@ export interface InewPost {
     postTitle: string,
     postBody: string
 };
+
+// Interface for editing blogPosts
+export interface IeditPost {
+    id: number | undefined,
+    userId: number | undefined,
+    postTitle: string | undefined,
+    postBody: string | undefined
+};

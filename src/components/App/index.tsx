@@ -9,6 +9,7 @@ import { Istate } from '../../interfaces/globalInterfaces';
 const App = () => {
   const dispatch = useDispatch();
   const blogItems = useSelector(((state: Istate) => state.blogState.blogItems));
+  const popupState = useSelector(((state: Istate) => state.popupState));
 
   console.log(blogItems);
 
@@ -17,7 +18,7 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <React.Fragment>
+    <div className={`${popupState.isOpen ? Styles.popupContainer : ''}`}>
         <header className={Styles.AppHeader}>
           <h3>React + Redux saga blog</h3>
         </header>
@@ -31,7 +32,7 @@ const App = () => {
               ))}
           </div>
         </div>
-    </React.Fragment>
+    </div>
   );
 }
 
