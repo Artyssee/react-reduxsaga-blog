@@ -2,18 +2,20 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import Styles from './blogItemContainer.module.scss';
-import { useDispatch } from 'react-redux';
-import { IBlogItemsState } from '../../interfaces/blogInterfaces'
+import { useDispatch, useSelector } from 'react-redux';
+import { IBlogItemsState } from '../../interfaces/blogInterfaces';
+import { Istate } from '../../interfaces/globalInterfaces';
 
 interface Props {
     item: IBlogItemsState,
 };
 
 const BlogItemContainer = ({item}:Props) => {
+    const popupState = useSelector(((state: Istate) => state.popupState.isOpen)); 
     const dispatch = useDispatch();
 
     const iconOnClick = () => {
-        console.log('w');
+        dispatch({ type: 'TOGGLE_POPUP', payload:popupState })
     };
 
     return (

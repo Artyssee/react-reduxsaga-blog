@@ -4,7 +4,7 @@ import { getBlogItems } from '../../redux/actions/blogActions';
 import PostForm from '../PostForm';
 import BlogItemContainer from '../BlogItemContainer';
 import Styles from './App.module.scss';
-import { Istate } from '../../interfaces/blogInterfaces';
+import { Istate } from '../../interfaces/globalInterfaces';
 
 const App = () => {
   const dispatch = useDispatch();
