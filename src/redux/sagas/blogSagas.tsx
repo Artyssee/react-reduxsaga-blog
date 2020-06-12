@@ -6,11 +6,11 @@ interface IPostAction {
   payload: InewPost;
 }
 
-function* fetchBlogItems() {
   // Used to be JSONplaceholder fetch. Mocked with mocky to better test https://jsonplaceholder.typicode.com/posts
+function* fetchBlogItems() {
   const json = yield fetch(
     "http://localhost:3001/api/blog"
-  ).then((response: any) => response.json());
+  ).then((response) => response.json());
   yield put({ type: "BLOGITEMS_RECEIVED", json });
 }
 

@@ -1,1 +1,8 @@
-export const deleteBlogItem = (payload:boolean) => ({ type: 'TOGGLE_POPUP', payload });
+export const openPopup = (payload:object) => ({ 
+    type: 'OPEN_POPUP', 
+    payload
+});
+
+export const closePopup = () => ({
+    type: 'CLOSE_POPUP',
+});

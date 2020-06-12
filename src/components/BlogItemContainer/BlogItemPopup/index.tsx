@@ -5,22 +5,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./blogItemPopup.module.scss";
 import { IeditPost } from "../../../interfaces/blogInterfaces";
+import { editBlogItem } from '../../../redux/actions/blogActions';
+import { closePopup } from '../../../redux/actions/popupActions';
 
 interface Props {
   currentItem: IcurrentPopup;
 }
 
 const BlogItemPopup = ({ currentItem }: Props) => {
-  const [newPostState, setNewPostState] = useState<IeditPost>({
-    userId: currentItem.userId,
-    id: currentItem.id,
-    postTitle: currentItem.title,
-    postBody: currentItem.body,
-  });
+  const [newPostState, setNewPostState] = useState<IeditPost>({ id: currentItem.id, userId: currentItem.userId, postTitle: currentItem.title, postBody: currentItem.body });
   const dispatch = useDispatch();
 
-  const changeValue = (
-    e:
+  const changeValue = (e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ): void => {
@@ -29,13 +25,11 @@ const BlogItemPopup = ({ currentItem }: Props) => {
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    dispatch({
-      type: "CLOSE_POPUP",
-    });
-    dispatch({ type: "EDIT_BLOGITEM", payload: newPostState });
+    dispatch(closePopup());
+    dispatch(editBlogItem(newPostState));
   };
 
-  const resetData = (): void => {
+  const resetData = ():void => {
     setNewPostState({
       ...newPostState,
       postTitle: currentItem.title,
@@ -49,7 +43,7 @@ const BlogItemPopup = ({ currentItem }: Props) => {
         <FontAwesomeIcon
           className={`${Styles.blogModalContentClose}`}
           icon={faTimes}
-          onClick={() => dispatch({ type: "CLOSE_POPUP" })}
+          onClick={() => dispatch(closePopup())}
         />
         <h1>
           Editing Issue {currentItem.id} | {currentItem.title}

@@ -6,8 +6,8 @@ export interface IblogState {
 
 // Interface of state blogItems
 export interface IBlogItemsState {
-  id?: number;
-  userId?: number;
+  id: number;
+  userId: number;
   title?: string;
   body?: string;
 }
@@ -22,8 +22,8 @@ export interface InewPost {
 
 // Interface for editing blogPosts
 export interface IeditPost {
-  id?: number;
-  userId?: number;
+  id: number;
+  userId: number;
   postTitle?: string;
   postBody?: string;
 }

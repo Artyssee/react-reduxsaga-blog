@@ -5,6 +5,8 @@ import Styles from './blogItemContainer.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { IBlogItemsState } from '../../interfaces/blogInterfaces';
 import { Istate } from '../../interfaces/globalInterfaces';
+import { openPopup } from '../../redux/actions/popupActions';
+import { deleteBlogItem } from '../../redux/actions/blogActions';
 import BlogItemPopup from './BlogItemPopup';
 
 interface Props {
@@ -33,12 +35,12 @@ const BlogItemContainer = ({item}:Props) => {
                         <FontAwesomeIcon 
                             className={`${Styles.blogItemIconContainerIcon} ${Styles.blogItemIconContainerIconEdit}`}
                             icon={faPencilAlt}
-                            onClick={() => dispatch({ type: 'OPEN_POPUP', payload:item })}
+                            onClick={() => dispatch(openPopup(item))}
                         />
                         <FontAwesomeIcon 
                             className={`${Styles.blogItemIconContainerIcon} ${Styles.blogItemIconContainerIconDelete}`}
                             icon={faTimes}
-                            onClick={() => dispatch({ type: 'DELETE_BLOGITEM', payload:item.id })}
+                            onClick={() => dispatch(deleteBlogItem(item.id))}
                         />
                     </div>
                 </div>

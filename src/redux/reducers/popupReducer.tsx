@@ -1,8 +1,8 @@
-import { IpopupState } from '../../interfaces/popupInterfaces';
+import { IpopupState, IcurrentPopup } from '../../interfaces/popupInterfaces';
 
 const initialState:IpopupState = {
     isOpen: false,
-    currentPopup: {},
+    currentPopup: {} as IcurrentPopup,
 };
 
 const popupReducer = (state = initialState, action: any):IpopupState => {
@@ -13,7 +13,7 @@ const popupReducer = (state = initialState, action: any):IpopupState => {
         return { 
           ...state,
           isOpen: state.isOpen = false,
-          currentPopup: {}
+          currentPopup: {} as IcurrentPopup
         }
       default:
         return state;

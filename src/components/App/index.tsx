@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBlogItems } from '../../redux/actions/blogActions';
+import { Istate } from '../../interfaces/globalInterfaces';
+import { IBlogItemsState } from '../../interfaces/blogInterfaces';
 import PostForm from '../PostForm';
 import BlogItemContainer from '../BlogItemContainer';
 import Styles from './App.module.scss';
-import { Istate } from '../../interfaces/globalInterfaces';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBlogItems } from '../../redux/actions/blogActions';
+
 
 const App = () => {
-  const dispatch = useDispatch();
   const blogItems = useSelector(((state: Istate) => state.blogState.blogItems));
   const popupState = useSelector(((state: Istate) => state.popupState));
-
-  console.log(blogItems);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBlogItems());
@@ -25,7 +25,7 @@ const App = () => {
         <div className={Styles.bodyContainer}>
           <PostForm />
           <div className={Styles.blogWrapper}>
-              {blogItems.slice(0).reverse().map((item, key: number) => (
+              {blogItems.slice(0).reverse().map((item:IBlogItemsState, key: number) => (
                 <React.Fragment key={key}>
                   <BlogItemContainer item={item}  />
                 </React.Fragment>

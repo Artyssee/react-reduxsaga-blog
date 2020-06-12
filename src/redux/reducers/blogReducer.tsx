@@ -7,8 +7,8 @@ const initialState: IblogState = {
 
 const removeArrayItem = (array: IBlogItemsState[], id: number) => {
   const newArray = [...array];
-  const removeIndex = newArray
-    .map(function (aItem: any) {
+  const removeIndex:number = newArray
+    .map((aItem:IBlogItemsState) => {
       return aItem.id;
     })
     .indexOf(id);
