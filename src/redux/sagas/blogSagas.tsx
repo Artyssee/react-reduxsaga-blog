@@ -1,9 +1,9 @@
 import { all, put, takeLatest } from "redux-saga/effects";
-import { InewPost } from "../../interfaces/blogInterfaces";
+import { InewBlogItem } from "../../interfaces/blogInterfaces";
 
 interface IPostAction {
   type: "POST_BLOGITEM";
-  payload: InewPost;
+  payload: InewBlogItem;
 }
 
 interface IDeleteAction {
@@ -35,7 +35,6 @@ function* createPostBlogItem(action: IPostAction): object {
     `http://localhost:3001/api/blog/${json.insertId}`
   ).then((response) => response.json());
   yield put({ type: "POST_BLOGITEM_RECEIVED", payload: newItem });
-  // Also fixed the back-end for the other actions. Was pushed in last commit but not specified.
   yield fetchBlogItems();
 }
 

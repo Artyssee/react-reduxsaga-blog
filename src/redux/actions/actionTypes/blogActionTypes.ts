@@ -1,4 +1,4 @@
-import { IBlogItemsState, IeditPost } from "../../../interfaces/blogInterfaces";
+import { IBlogItemsState, IeditBlogItem } from "../../../interfaces/blogInterfaces";
 
 export const 
     POST_BLOGITEM = "POST_BLOGITEM",
@@ -37,7 +37,7 @@ interface IEditBlogItemAction {
 
 interface IEditBlogItemActionSuccessful {
     type: typeof EDIT_BLOGITEM_SUCCESSFUL,
-    payload: IeditPost
+    payload: IeditBlogItem
 };
 
 interface IDeleteBlogItemAction {

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./blogItemPopup.module.scss";
-import { IeditPost } from "../../../interfaces/blogInterfaces";
+import { IeditBlogItem } from "../../../interfaces/blogInterfaces";
 import { editBlogItem } from '../../../redux/actions/blogActions';
 import { closePopup } from '../../../redux/actions/popupActions';
 
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const BlogItemPopup = ({ currentItem }: Props) => {
-  const [newPostState, setNewPostState] = useState<IeditPost>({ id: currentItem.id, userId: currentItem.userId, postTitle: currentItem.title, postBody: currentItem.body });
+  const [newPostState, setNewPostState] = useState<IeditBlogItem>({ id: currentItem.id, userId: currentItem.userId, postTitle: currentItem.title, postBody: currentItem.body });
   const dispatch = useDispatch();
 
   const changeValue = (e:

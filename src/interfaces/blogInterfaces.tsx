@@ -13,7 +13,7 @@ export interface IBlogItemsState {
 }
 
 // Interface for creating new blogPosts
-export interface InewPost {
+export interface InewBlogItem {
   id?: number;
   userId: number;
   postTitle: string;
@@ -21,7 +21,7 @@ export interface InewPost {
 }
 
 // Interface for editing blogPosts
-export interface IeditPost {
+export interface IeditBlogItem {
   id: number;
   userId: number;
   postTitle?: string;
