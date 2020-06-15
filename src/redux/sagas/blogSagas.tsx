@@ -1,16 +1,21 @@
 import { all, put, takeLatest } from "redux-saga/effects";
-import { InewPost } from "../../interfaces/blogInterfaces";
+import { InewBlogItem } from "../../interfaces/blogInterfaces";
 
 interface IPostAction {
   type: "POST_BLOGITEM";
-  payload: InewPost;
+  payload: InewBlogItem;
 }
 
-function* fetchBlogItems() {
+interface IDeleteAction {
+  type: "DELETE_BLOGITEM";
+  blogItemId: number
+}
+
   // Used to be JSONplaceholder fetch. Mocked with mocky to better test https://jsonplaceholder.typicode.com/posts
+function* fetchBlogItems() {
   const json = yield fetch(
     "http://localhost:3001/api/blog"
-  ).then((response: any) => response.json());
+  ).then((response) => response.json());
   yield put({ type: "BLOGITEMS_RECEIVED", json });
 }
 
@@ -30,6 +35,7 @@ function* createPostBlogItem(action: IPostAction): object {
     `http://localhost:3001/api/blog/${json.insertId}`
   ).then((response) => response.json());
   yield put({ type: "POST_BLOGITEM_RECEIVED", payload: newItem });
+  yield fetchBlogItems();
 }
 
 function* editBlogItem(action: IPostAction): object {
@@ -52,11 +58,12 @@ function* editBlogItem(action: IPostAction): object {
   yield fetchBlogItems();
 }
 
-function* deleteBlogItem({ payload }: any) {
-  yield fetch(`http://localhost:3001/api/blog/${payload}`, {
+function* deleteBlogItem(action: IDeleteAction): object {
+  yield fetch(`http://localhost:3001/api/blog/${action.blogItemId}`, {
     method: "DELETE",
   });
-  yield put({ type: "DELETE_BLOGITEM_SUCCESSFUL", payload });
+  yield put({ type: "DELETE_BLOGITEM_SUCCESSFUL", payload: action.blogItemId });
+  yield fetchBlogItems();
 }
 
 function* postBlogItemWatcher() {

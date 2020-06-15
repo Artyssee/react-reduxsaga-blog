@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Styles from "./postForm.module.scss";
-import { InewPost } from "../../interfaces/blogInterfaces";
+import { InewBlogItem } from "../../interfaces/blogInterfaces";
 
 const PostForm = () => {
   const dispatch = useDispatch();
-  const [newPost, setNewPost] = useState<InewPost>({
+  const [newPost, setNewPost] = useState<InewBlogItem>({
     userId: 999,
     postTitle: "",
     postBody: "",
