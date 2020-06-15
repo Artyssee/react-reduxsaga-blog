@@ -25,11 +25,11 @@ const App = () => {
         <div className={Styles.bodyContainer}>
           <PostForm />
           <div className={Styles.blogWrapper}>
-              {blogItems.slice(0).reverse().map((item:IBlogItemsState, key: number) => (
+              {blogItems ? blogItems.slice(0).reverse().map((item:IBlogItemsState, key: number) => (
                 <React.Fragment key={key}>
                   <BlogItemContainer item={item}  />
                 </React.Fragment>
-              ))}
+              )): <React.Fragment />}
           </div>
         </div>
     </div>

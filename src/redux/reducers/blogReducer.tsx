@@ -15,7 +15,7 @@ const blogReducer = (state: IblogState = initialState, action: blogActionTypes):
     case POST_BLOGITEM:
       return { ...state, loading: true };
     case POST_BLOGITEM_RECEIVED:
-      return { ...state, blogItems: state.blogItems.concat(action.payload), loading: false };
+      return { ...state, blogItems: state.blogItems, loading: false };
     case DELETE_BLOGITEM:
       return { ...state, loading: true };
     case DELETE_BLOGITEM_SUCCESSFUL:

@@ -35,6 +35,8 @@ function* createPostBlogItem(action: IPostAction): object {
     `http://localhost:3001/api/blog/${json.insertId}`
   ).then((response) => response.json());
   yield put({ type: "POST_BLOGITEM_RECEIVED", payload: newItem });
+  // Also fixed the back-end for the other actions. Was pushed in last commit but not specified.
+  yield fetchBlogItems();
 }
 
 function* editBlogItem(action: IPostAction): object {
