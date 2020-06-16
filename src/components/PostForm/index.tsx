@@ -21,6 +21,7 @@ const PostForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    setNewPost({ ...newPost, postTitle: '', postBody: '' })
     dispatch({ type: "POST_BLOGITEM", payload: newPost });
   };
 
@@ -33,6 +34,7 @@ const PostForm = () => {
         className={Styles.postFormContainerInput}
         type="text"
         placeholder="Insert post title"
+        value={newPost.postTitle}
         name="postTitle"
         onChange={(e) => changeItem(e)}
       />
@@ -40,6 +42,7 @@ const PostForm = () => {
         className={Styles.postFormContainerTextarea}
         placeholder="Insert post body"
         name="postBody"
+        value={newPost.postBody}
         onChange={(e) => changeItem(e)}
       />
       <button className={Styles.postFormContainerButton} type="submit">
