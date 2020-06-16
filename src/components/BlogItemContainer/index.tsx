@@ -8,6 +8,7 @@ import { Istate } from '../../interfaces/globalInterfaces';
 import { openPopup } from '../../redux/actions/popupActions';
 import { deleteBlogItem } from '../../redux/actions/blogActions';
 import BlogItemPopup from './BlogItemPopup';
+import { truncateString } from '../../js/functions';
 
 interface Props {
     item: IBlogItemsState,
@@ -44,7 +45,7 @@ const BlogItemContainer = ({item}:Props) => {
                         />
                     </div>
                 </div>
-                <p className={Styles.blogItemContainerText}>{item.body}</p>
+                <p className={Styles.blogItemContainerText}>{item.body !== undefined ? truncateString(item.body, 100) : item.body}</p>
             </div>
         </React.Fragment>
     );
