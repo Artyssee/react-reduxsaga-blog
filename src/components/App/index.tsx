@@ -17,8 +17,16 @@ const App = () => {
     dispatch(getBlogItems());
   }, [dispatch])
 
+  useEffect(() => {
+    if (popupState.isOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'auto';
+    }
+  }, [popupState.isOpen]);
+
   return (
-    <div className={`${popupState.isOpen ? Styles.popupContainer : ''}`}>
+    <div>
         <header className={Styles.AppHeader}>
           <h3>React + Redux saga blog</h3>
         </header>

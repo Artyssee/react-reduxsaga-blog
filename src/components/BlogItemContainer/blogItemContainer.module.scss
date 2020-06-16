@@ -17,6 +17,9 @@
     &Text {
         color: $black-chocolate;
         text-align: left;
+        width: 600px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 }
 
@@ -41,6 +44,7 @@
         text-align: left;
         color: $black-chocolate;
         margin-right: 20px;
+        min-width: 62px;
     }
 
     &Seperator {
@@ -51,6 +55,7 @@
     &BlogNumber {
         color: $black-chocolate;
         margin: 0;
+        width: 280px
     }
 }
 

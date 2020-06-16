@@ -45,7 +45,7 @@ const BlogItemPopup = ({ currentItem }: Props) => {
           icon={faTimes}
           onClick={() => dispatch(closePopup())}
         />
-        <h1>
+        <h1 className={Styles.blogModalContentHeading}>
           Editing Issue {currentItem.id} | {currentItem.title}
         </h1>
 
