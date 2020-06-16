@@ -1,9 +1,5 @@
 @import '../../assets/scss/variables/colors.scss';
 
-.App {
-  text-align: center;
-}
-
 .AppHeader {
   background-color: #282c34;
   display: flex;
@@ -11,7 +7,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $white;
   height: 80px;
   position: fixed;
   width: 100%;

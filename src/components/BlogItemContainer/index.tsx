@@ -8,7 +8,7 @@ import { Istate } from '../../interfaces/globalInterfaces';
 import { openPopup } from '../../redux/actions/popupActions';
 import { deleteBlogItem } from '../../redux/actions/blogActions';
 import BlogItemPopup from './BlogItemPopup';
-import { truncateString } from '../../js/functions';
+import { truncateString } from '../../assets/ts/functions';
 
 interface Props {
     item: IBlogItemsState,
