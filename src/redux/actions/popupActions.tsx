@@ -1,10 +1,11 @@
-import { OPEN_POPUP, CLOSE_POPUP, popupActionTypes } from './actionTypes/popupActionTypes';
+import { OPEN_POPUP, CLOSE_POPUP, PopupActionTypes } from './actionTypes/popupActionTypes';
+import { IBlogItemsState } from '../../interfaces/blogInterfaces';
 
-export const openPopup = (payload:object):popupActionTypes => ({ 
-    type: OPEN_POPUP, 
-    payload
+export const openPopup = (payload:IBlogItemsState):PopupActionTypes => ({
+  type: OPEN_POPUP,
+  payload,
 });
 
-export const closePopup = ():popupActionTypes => ({
-    type: CLOSE_POPUP,
+export const closePopup = ():PopupActionTypes => ({
+  type: CLOSE_POPUP,
 });

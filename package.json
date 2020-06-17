@@ -33,7 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "xmysql -h localhost -u root -d saga-json-blog -n 3001"
+    "server": "xmysql -h localhost -u root -d saga-json-blog -n 3001",
+    "lint": "eslint . --ext ts,tsx ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,12 +53,16 @@
   },
   "devDependencies": {
     "@types/redux-logger": "^3.0.7",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-config-airbnb-typescript": "^8.0.2",
+    "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-react-redux": "^3.0.3",
     "xmysql": "^0.5.1"
   }
 }

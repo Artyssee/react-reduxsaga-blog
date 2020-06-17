@@ -16,8 +16,8 @@ export interface IBlogItemsState {
 export interface InewBlogItem {
   id?: number;
   userId: number;
-  postTitle: string;
-  postBody: string;
+  postTitle?: string;
+  postBody?: string;
 }
 
 // Interface for editing blogPosts

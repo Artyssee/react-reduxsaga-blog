@@ -1,9 +1,8 @@
-import { createStore, applyMiddleware } from "redux";
-import rootReducer from "./reducers/rootReducer";
-import rootSaga from "./sagas/rootSaga";
-
-import createSagaMiddleware from "redux-saga";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './reducers/rootReducer';
+import rootSaga from './sagas/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = composeWithDevTools({
@@ -13,7 +12,7 @@ const composeEnhancers = composeWithDevTools({
 
 export default createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(sagaMiddleware))
+  composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 
 sagaMiddleware.run(rootSaga);
