@@ -1,7 +1,6 @@
 import React, {
   useState,
   FormEvent,
-  ReactElement,
 } from 'react';
 import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +15,7 @@ interface Props {
   currentItem: IcurrentPopup;
 }
 
-const BlogItemPopup = ({ currentItem }: Props):ReactElement => {
+const BlogItemPopup: React.FC<Props> = ({ currentItem }:Props) => {
   const [newPostState, setNewPostState] = useState<IeditBlogItem>({
     id: currentItem.id,
     userId: currentItem.userId,
