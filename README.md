@@ -3,8 +3,9 @@
 To get the project on your pc please follow the following steps:
 
 1. npm ci / npm install(npm ci is recommended)
-2. npm run server to get the project server running
-3. npm run start to get the project itself running
+2. Make a database called 'saga-json-blog'
+3. npm run server to get the project server running
+4. npm run start to get the project itself running
 
 If there are any questions regarding the project please contact me
 
