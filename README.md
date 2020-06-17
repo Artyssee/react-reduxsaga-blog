@@ -21,7 +21,7 @@ You will also see any lint errors in the console.
 
 ### `npm run server`
 
-Runs a server to add/edit/delet blogItems. Without the server the blog functionality will not work.
+Runs a server to add/edit/delet blogItems. Without the server the blog functionality will not work. Api routes can be found on [http://localhost:3001](http://localhost:3001) while this command is running.
 
 ### `npm build`
 
