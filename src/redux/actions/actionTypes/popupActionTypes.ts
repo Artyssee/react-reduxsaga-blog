@@ -1,16 +1,17 @@
+import { IBlogItemsState } from '../../../interfaces/blogInterfaces';
+
 export const OPEN_POPUP = 'OPEN_POPUP';
 export const CLOSE_POPUP = 'CLOSE_POPUP';
 
-interface openPopupAction { 
-    type: typeof OPEN_POPUP, 
-    payload: object
-};
+interface OpenPopupAction {
+  type: typeof OPEN_POPUP,
+  payload: IBlogItemsState,
+}
 
-interface closePopupAction {
-    type: typeof CLOSE_POPUP,
-};
+interface ClosePopupAction {
+  type: typeof CLOSE_POPUP,
+}
 
-export type popupActionTypes = 
-    openPopupAction
-    | closePopupAction
-;
+export type PopupActionTypes =
+    OpenPopupAction
+    | ClosePopupAction;

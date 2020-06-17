@@ -3,6 +3,6 @@ import { IpopupState } from './popupInterfaces';
 
 // Interface of global state
 export interface Istate {
-    blogState: IblogState,
-    popupState: IpopupState,
-};
+  blogState: IblogState,
+  popupState: IpopupState,
+}

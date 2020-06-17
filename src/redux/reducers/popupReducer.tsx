@@ -1,24 +1,24 @@
 import { IpopupState, IcurrentPopup } from '../../interfaces/popupInterfaces';
-import { OPEN_POPUP, CLOSE_POPUP } from '../../redux/actions/actionTypes/popupActionTypes';
+import { PopupActionTypes, OPEN_POPUP, CLOSE_POPUP } from '../actions/actionTypes/popupActionTypes';
 
 const initialState:IpopupState = {
-    isOpen: false,
-    currentPopup: {} as IcurrentPopup,
+  isOpen: false,
+  currentPopup: {} as IcurrentPopup,
 };
 
-const popupReducer = (state = initialState, action: any):IpopupState => {
-    switch (action.type) {
+const popupReducer = (state = initialState, action: PopupActionTypes):IpopupState => {
+  switch (action.type) {
     case OPEN_POPUP:
-        return { ...state, isOpen: state.isOpen = true, currentPopup: action.payload };
+      return { ...state, isOpen: !state.isOpen, currentPopup: action.payload };
     case CLOSE_POPUP:
-        return { 
-          ...state,
-          isOpen: state.isOpen = false,
-          currentPopup: {} as IcurrentPopup
-        }
-      default:
-        return state;
-    }
-  };
+      return {
+        ...state,
+        isOpen: !state.isOpen,
+        currentPopup: {} as IcurrentPopup,
+      };
+    default:
+      return state;
+  }
+};
 
 export default popupReducer;

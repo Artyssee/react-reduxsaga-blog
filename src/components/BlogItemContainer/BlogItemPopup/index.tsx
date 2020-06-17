@@ -1,10 +1,14 @@
-import React, { useState, FormEvent } from "react";
-import { IcurrentPopup } from "../../../interfaces/popupInterfaces";
-import { useDispatch } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import Styles from "./blogItemPopup.module.scss";
-import { IeditBlogItem } from "../../../interfaces/blogInterfaces";
+import React, {
+  useState,
+  FormEvent,
+  ReactElement,
+} from 'react';
+import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { IcurrentPopup } from '../../../interfaces/popupInterfaces';
+import Styles from './blogItemPopup.module.scss';
+import { IeditBlogItem } from '../../../interfaces/blogInterfaces';
 import { editBlogItem } from '../../../redux/actions/blogActions';
 import { closePopup } from '../../../redux/actions/popupActions';
 
@@ -12,14 +16,18 @@ interface Props {
   currentItem: IcurrentPopup;
 }
 
-const BlogItemPopup = ({ currentItem }: Props) => {
-  const [newPostState, setNewPostState] = useState<IeditBlogItem>({ id: currentItem.id, userId: currentItem.userId, postTitle: currentItem.title, postBody: currentItem.body });
+const BlogItemPopup = ({ currentItem }: Props):ReactElement => {
+  const [newPostState, setNewPostState] = useState<IeditBlogItem>({
+    id: currentItem.id,
+    userId: currentItem.userId,
+    postTitle: currentItem.title,
+    postBody: currentItem.body,
+  });
   const dispatch = useDispatch();
 
   const changeValue = (e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ): void => {
+  | React.ChangeEvent<HTMLInputElement>
+  | React.ChangeEvent<HTMLTextAreaElement>): void => {
     setNewPostState({ ...newPostState, [e.target.name]: e.target.value });
   };
 
@@ -46,7 +54,7 @@ const BlogItemPopup = ({ currentItem }: Props) => {
           onClick={() => dispatch(closePopup())}
         />
         <h1 className={Styles.blogModalContentHeading}>
-          Editing Issue {currentItem.id} | {currentItem.title}
+          {`Editing Issue ${currentItem.id} | ${currentItem.title}`}
         </h1>
 
         <form

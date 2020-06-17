@@ -1,12 +1,22 @@
-import { GET_BLOGITEMS, BLOGITEMS_RECEIVED, POST_BLOGITEM, EDIT_BLOGITEM, DELETE_BLOGITEM, blogActionTypes, POST_BLOGITEM_RECEIVED, DELETE_BLOGITEM_SUCCESSFUL, EDIT_BLOGITEM_SUCCESSFUL } from '../actions/actionTypes/blogActionTypes';
-import { IblogState } from "../../interfaces/blogInterfaces";
+import {
+  GET_BLOGITEMS,
+  BLOGITEMS_RECEIVED,
+  POST_BLOGITEM,
+  EDIT_BLOGITEM,
+  DELETE_BLOGITEM,
+  BlogActionTypes,
+  POST_BLOGITEM_RECEIVED,
+  DELETE_BLOGITEM_SUCCESSFUL,
+  EDIT_BLOGITEM_SUCCESSFUL,
+} from '../actions/actionTypes/blogActionTypes';
+import { IblogState } from '../../interfaces/blogInterfaces';
 
 const initialState: IblogState = {
   blogItems: [],
   loading: false,
 };
 
-const blogReducer = (state: IblogState = initialState, action: blogActionTypes): IblogState => {
+const blogReducer = (state: IblogState = initialState, action: BlogActionTypes): IblogState => {
   switch (action.type) {
     case GET_BLOGITEMS:
       return { ...state, loading: true };
