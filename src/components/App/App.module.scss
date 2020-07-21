@@ -1,0 +1,32 @@
+@import '../../assets/scss/variables/colors.scss';
+
+.AppHeader {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: $white;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+}
+
+.blogWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+
+.bodyContainer {
+  background-color: $prussian-blue;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+}

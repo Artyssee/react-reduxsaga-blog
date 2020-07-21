@@ -1,21 +1,10 @@
-const initialState = {
-  blogItems: [],
-  blogItem: {}
-};
+import { combineReducers } from 'redux';
+import blogReducer from './blogReducer';
+import popupReducer from './popupReducer';
 
-const reducer = (state = initialState, action: any) => {
-    switch (action.type) {
-    case 'GET_BLOGITEMS':
-      return { ...state, loading: true };
-    case 'BLOGITEMS_RECEIVED':
-      return { ...state, blogItems: action.json, loading: false }
-    case 'POST_BLOGITEM':
-      return { ...state, loading: true}
-    case 'POST_BLOGITEM_RECEIVED':
-      return { ...state, blogItem: action.json, loading: false}
-    default: 
-      return state;
-    }
-  };
+const rootReducer = combineReducers({
+  blogState: blogReducer,
+  popupState: popupReducer,
+});
 
-export default reducer;
+export default rootReducer;

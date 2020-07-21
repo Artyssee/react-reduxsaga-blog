@@ -1,50 +1,47 @@
 import React, { useEffect } from 'react';
-import './App.css';
-import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
-import { getBlogItems } from '../../redux/actions/blogActions';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { Istate } from '../../interfaces/globalInterfaces';
+import { IBlogItemsState } from '../../interfaces/blogInterfaces';
 import PostForm from '../PostForm';
+import BlogItemContainer from '../BlogItemContainer';
+import Styles from './App.module.scss';
+import { getBlogItems } from '../../redux/actions/blogActions';
+import store from '../../redux/store';
 
-const App = () => {
+const App: React.FC = () => {
+  const blogItems = useSelector(((state: Istate) => state.blogState.blogItems));
+  const popupState = useSelector(((state: Istate) => state.popupState));
   const dispatch = useDispatch();
-  const blogItems = useSelector(((state: RootStateOrAny) => state.blogItems));
-  const blogItem = useSelector(((state: RootStateOrAny) => state.blogItem));
 
   useEffect(() => {
     dispatch(getBlogItems());
-  }, [dispatch])
+  }, [dispatch]);
 
-  const newBlogItems = (blogItem:any) => (
-    <div key={blogItem.id}>
-      <h1>{blogItem.title}</h1>
-      <p>{blogItem.body}</p>
-    </div>
-  );
+  useEffect(() => {
+    if (popupState.isOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'auto';
+    }
+  }, [popupState.isOpen]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <PostForm />
-        {newBlogItems(blogItem)}
-        {blogItems.map((item: any, key: number) => (
-          <div key={key}>
-            <h1>{item.title}</h1>
-            <p>{item.body}</p>
-          </div>
-        ))}
+    <Provider store={store}>
+      <header className={Styles.AppHeader}>
+        <h3>React + Redux saga blog</h3>
       </header>
-    </div>
+      <div className={Styles.bodyContainer}>
+        <PostForm />
+        <div className={Styles.blogWrapper}>
+          {blogItems ? blogItems.slice(0).reverse().map((item:IBlogItemsState) => (
+            <React.Fragment key={item.id}>
+              <BlogItemContainer item={item} />
+            </React.Fragment>
+          )) : <></>}
+        </div>
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
